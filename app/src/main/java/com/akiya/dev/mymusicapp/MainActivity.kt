@@ -11,19 +11,22 @@ import android.os.Bundle
 import android.os.IBinder
 import android.view.MenuItem
 import android.view.View
+import android.widget.MediaController
 import androidx.appcompat.app.AppCompatActivity
 import com.akiya.dev.mymusicapp.MusicService.MusicBinder
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),MediaController.MediaPlayerControl {
 
     private var songList: ArrayList<Song>? = null
 
     private var musicSrv: MusicService? = null
     private var playIntent: Intent? = null
     private var musicBound = false
+
+    private var controller: MusicController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +61,11 @@ class MainActivity : AppCompatActivity() {
         val songAdt = SongAdapter(this, songList!!)
         song_list.adapter = songAdt
 
+    }
+
+    private fun setController() {
+        //set the controller up
+        controller = MusicController(this)
     }
 
     //connect to the service
@@ -132,5 +140,49 @@ class MainActivity : AppCompatActivity() {
 //        }
         songList?.add(Song(1, "Blue", "Invisible"))
         songList?.add(Song(2, "Distance", "Invisible"))
+    }
+
+    override fun start() {
+        TODO("Not yet implemented")
+    }
+
+    override fun pause() {
+        TODO("Not yet implemented")
+    }
+
+    override fun getDuration(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun getCurrentPosition(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun seekTo(pos: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun isPlaying(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun getBufferPercentage(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun canPause(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun canSeekBackward(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun canSeekForward(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun getAudioSessionId(): Int {
+        TODO("Not yet implemented")
     }
 }
