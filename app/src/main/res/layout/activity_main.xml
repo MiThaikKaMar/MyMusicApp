@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FF330000"
-    tools:context=".MainActivity">
+    tools:context=".allsonglist.MainActivity">
 
     <ListView
         android:id="@+id/song_list"
